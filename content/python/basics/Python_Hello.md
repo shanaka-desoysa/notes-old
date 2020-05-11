@@ -1,12 +1,3 @@
----
-title: "Python Hello"
-author: "Eric Peña"
-date: 2020-05-07T11:53:49-07:00
-description: "Python Hello"
-type: technical_note
-draft: false
----
-
 # Hello World
 
 
