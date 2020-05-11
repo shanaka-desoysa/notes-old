@@ -1,8 +1,8 @@
 ---
-title: "Logistic Map"
+title: "Python Hello World"
 author: "Eric Peña"
-date: 2020-04-07T11:53:49-07:00
-description: "Explaining Logistic Map and Bifurcation Behavior"
+date: 2020-05-11T11:53:49-07:00
+description: "Python Hello World"
 type: technical_note
 draft: false
 ---
