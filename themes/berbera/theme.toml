@@ -6,7 +6,7 @@ features = ["responsive", "blog"]
 min_version = 0.25
 
 [author]
-  name = "Eric Pena"
+  name = "Shanaka C. DeSoysa"
   homepage = "https://shanaka-desoysa.github.io/"
 
 [based on]
