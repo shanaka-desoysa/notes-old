@@ -1,15 +1,11 @@
 ---
-title: "Python Hello World"
-author: "Shanaka C. DeSoysa"
-date: 2020-05-11T11:53:49-07:00
-description: "Python Hello World"
-type: page
+title: "Logistic Map"
+author: "Eric Peña"
+date: 2020-04-07T11:53:49-07:00
+description: "Explaining Logistic Map and Bifurcation Behavior"
+type: technical_note
 draft: false
-outputs:
-    - html
 ---
-
-
 # Hello World
 
 
