@@ -5,18 +5,32 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 May 2020 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Tue,May 12, 2020 16:04:37 +0000</lastBuildDate>
     
         <atom:link href="https://blog.geni.ai/notes/python/basics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Python Hello World</title>
-      <link>https://blog.geni.ai/notes/python/basics/python_hello.html</link>
-      <pubDate>Sun, 10 May 2020 11:53:49 -0700</pubDate>
+      <title>ISO 8601 Timestamp in Python</title>
+      <link>https://blog.geni.ai/notes/python/basics/iso_8601.html</link>
+      <pubDate>Tue,May 12, 2020 16:04:37 +0000</pubDate>
       
-      <guid>https://blog.geni.ai/notes/python/basics/python_hello.html</guid>
-      <description>Hello World print(&amp;#39;Hello World&amp;#39;) Hello World  1==1 True  </description>
+      <guid>https://blog.geni.ai/notes/python/basics/iso_8601.html</guid>
+      <description>ISO 8601 Data elements and interchange formats – Information interchange – Representation of dates and times is an international standard covering the exchange of date- and time-related data. It was issued by the International Organization for Standardization (ISO) and was first published in 1988.
+from datetime import datetime, timezone, tzinfo UTC Time # UTC time now print(datetime.utcnow().replace(microsecond=0).isoformat()) 2020-05-12T16:16:06  # UTC time now with timezone info print(datetime.now().astimezone(tz=timezone.utc).replace(microsecond=0).isoformat()) 2020-05-12T16:16:06+00:00  Local Time # Local time now with timezone info print(datetime.</description>
+    </item>
+    
+    <item>
+      <title>Python ASCII Encoding</title>
+      <link>https://blog.geni.ai/notes/python/basics/ascii.html</link>
+      <pubDate>Thu,May 07, 2020 11:53:49 -0700</pubDate>
+      
+      <guid>https://blog.geni.ai/notes/python/basics/ascii.html</guid>
+      <description>ASCII abbreviated from American Standard Code for Information Interchange, is a character encoding standard for electronic communication. ASCII codes represent text in computers, telecommunications equipment, and other devices.
+ASCII Value of a Character Print ASCII value of character &amp;lsquo;a&amp;rsquo;.
+print(ord(&amp;#39;a&amp;#39;)) 97  Print ASCII value of character &amp;lsquo;A&amp;rsquo;.
+print(ord(&amp;#39;A&amp;#39;)) 65  Character from ASCII Value Print character represented by ACII value 97.
+print(chr(97)) a  Print character represented by ACII value 65.</description>
     </item>
     
   </channel>

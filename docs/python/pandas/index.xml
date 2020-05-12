@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python - Shanaka C. DeSoysa</title>
+    <link>https://blog.geni.ai/notes/python/pandas/index.xml</link>
+    <description></description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue,May 12, 2020 16:04:37 +0000</lastBuildDate>
+    
+        <atom:link href="https://blog.geni.ai/notes/python/pandas/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pandas GroupBy</title>
+      <link>https://blog.geni.ai/notes/python/pandas/groupby.html</link>
+      <pubDate>Tue,May 12, 2020 16:04:37 +0000</pubDate>
+      
+      <guid>https://blog.geni.ai/notes/python/pandas/groupby.html</guid>
+      <description>The groupby method in pandas allows you to group rows of data together and call aggregate functions.
+import pandas as pd # Create dataframe data = {&amp;#39;Company&amp;#39;:[&amp;#39;GOOG&amp;#39;,&amp;#39;GOOG&amp;#39;,&amp;#39;MSFT&amp;#39;,&amp;#39;MSFT&amp;#39;,&amp;#39;FB&amp;#39;,&amp;#39;FB&amp;#39;], &amp;#39;Person&amp;#39;:[&amp;#39;Sam&amp;#39;,&amp;#39;Charlie&amp;#39;,&amp;#39;Amy&amp;#39;,&amp;#39;Vanessa&amp;#39;,&amp;#39;Carl&amp;#39;,&amp;#39;Sarah&amp;#39;], &amp;#39;Sales&amp;#39;:[200,120,340,124,243,350]} df = pd.DataFrame(data) df  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  
+  Company Person Sales     0 GOOG Sam 200   1 GOOG Charlie 120   2 MSFT Amy 340   3 MSFT Vanessa 124   4 FB Carl 243   5 FB Sarah 350     Now you can use the .</description>
+    </item>
+    
+  </channel>
+</rss>

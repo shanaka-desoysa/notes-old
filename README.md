@@ -31,8 +31,17 @@ Theme code update: index.html
 ```
 
 ## Run Jupyter
+
+Minimal Notebook
+
 ```bash
 docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work jupyter/minimal-notebook
+```
+
+SciPy Notebook
+
+```bash
+docker run --rm -p 10000:8888 -e JUPYTER_ENABLE_LAB=yes -e TZ=America/Chicago -v "$PWD":/home/jovyan/work jupyter/scipy-notebook
 ```
 
 ## License

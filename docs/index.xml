@@ -5,15 +5,24 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 May 2020 11:53:49 -0700</lastBuildDate>
+    <lastBuildDate>Tue,May 12, 2020 16:04:37 +0000</lastBuildDate>
     
         <atom:link href="https://blog.geni.ai/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Network_securities</title>
+      <link>https://blog.geni.ai/notes/network_security/index.xml</link>
+      <pubDate>Tue,May 12, 2020 16:04:37 +0000</pubDate>
+      
+      <guid>https://blog.geni.ai/notes/network_security/index.xml</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pythons</title>
       <link>https://blog.geni.ai/notes/python/index.xml</link>
-      <pubDate>Sun, 10 May 2020 11:53:49 -0700</pubDate>
+      <pubDate>Tue,May 12, 2020 16:04:37 +0000</pubDate>
       
       <guid>https://blog.geni.ai/notes/python/index.xml</guid>
       <description></description>
@@ -22,7 +31,7 @@
     <item>
       <title></title>
       <link>https://blog.geni.ai/notes/about/index.xml</link>
-      <pubDate>Fri, 01 May 2020 11:53:49 -0700</pubDate>
+      <pubDate>Fri,May 01, 2020 11:53:49 -0700</pubDate>
       
       <guid>https://blog.geni.ai/notes/about/index.xml</guid>
       <description></description>

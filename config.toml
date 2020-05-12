@@ -13,3 +13,9 @@ uglyURLs = true
 [outputs]
   home = ["HTML", "RSS"]
   section = ["RSS"]
+
+[markup.goldmark.renderer]
+  unsafe= true
+
+[params]
+  date_format = "Jan 02, 2006"

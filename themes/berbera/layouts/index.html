@@ -4,18 +4,19 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>
-                    <span class="minor_line">Snacks</span>
+                    <span class="minor_line">Notes On</span>
                     <br>
-                    <span class="major_line">On Data Science, Machine Learning</span>
+                    <span class="major_line">Applied Data Science, Machine Learning, Programming</span>
                     <br>
-                    <span class="minor_line"></span>
+                    <span class="minor_line">Productionizing Data Science</span>
                 </h1>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 blurb">
                 <p>
-                    <a href="about/shanaka_desoysa.html">Shanaka C. DeSoysa</a>
+                    <a href="about/shanaka_desoysa.html">Shanaka C. DeSoysa</a> is a Data Scientist and a 
+                    full-stack Software Developer with over a decade of experience. 
                 </p>
             </div>
         </div>
@@ -35,6 +36,50 @@
             <div class="card-body">
                 <ul>
                     {{ $section := site.GetPage "python/basics" }}
+                    {{ with $section }}
+                        {{ range .Pages }}
+                            <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <h4 class="card-header">Pandas</h4>
+            <div class="card-body">
+                <ul>
+                    {{ $section := site.GetPage "python/pandas" }}
+                    {{ with $section }}
+                        {{ range .Pages }}
+                            <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-----------------------------------------------------------------------------
+                                NETWORK SECURITY
+------------------------------------------------------------------------------>
+<div class="row" id="python">
+    <div class="col-sm-12">
+        <h3 class="category_header">Network Security and Ethical Hacking</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <h4 class="card-header">Kali Linux</h4>
+            <div class="card-body">
+                <ul>
+                    {{ $section := site.GetPage "network_security/kali_linux" }}
                     {{ with $section }}
                         {{ range .Pages }}
                             <li><a href="{{.Permalink}}">{{.Title}}</a></li>

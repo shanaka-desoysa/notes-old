@@ -1,0 +1,26 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>network_security - Shanaka C. DeSoysa</title>
+    <link>https://blog.geni.ai/notes/network_security/kali_linux/index.xml</link>
+    <description></description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue,May 12, 2020 16:04:37 +0000</lastBuildDate>
+    
+        <atom:link href="https://blog.geni.ai/notes/network_security/kali_linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kali Linux ARP Spoofing</title>
+      <link>https://blog.geni.ai/notes/network_security/kali_linux/arp_spoofing.html</link>
+      <pubDate>Tue,May 12, 2020 16:04:37 +0000</pubDate>
+      
+      <guid>https://blog.geni.ai/notes/network_security/kali_linux/arp_spoofing.html</guid>
+      <description>In computer networking, ARP spoofing, ARP cache poisoning, or ARP poison routing, is a technique by which an attacker sends (spoofed) Address Resolution Protocol (ARP) messages onto a local area network.
+ARP The Address Resolution Protocol (ARP) is a communication protocol used for discovering the link layer address, such as a MAC address, associated with a given internet layer address, typically an IPv4 address.
+Check ARP on Linux/Mac/Win.
+arp -a Find Default Gateway Check your default gateway:</description>
+    </item>
+    
+  </channel>
+</rss>

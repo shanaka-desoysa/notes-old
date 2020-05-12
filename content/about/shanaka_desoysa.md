@@ -9,6 +9,7 @@ outputs:
     - html
 ---
 
-![Shanaka DeSoysa](shanaka_desoysa.jpg)
+![Shanaka DeSoysa](shanaka_desoysa/shanaka_desoysa.jpg)
 
 -   Email: shanaka@computer.org
+-   LinkedIn: https://www.linkedin.com/in/shanakadesoysa/

@@ -47,7 +47,7 @@
   "description": "{{ . }}"
   {{- end }}
 }
-</script> {{ end }} {{ define "main" }} {{ $dateFormat := default " 02 Jan 2006" (index .Site.Params "date_format") }}
+</script> {{ end }} {{ define "main" }} {{ $dateFormat := default "Jan 02, 2006" (index .Site.Params "date_format") }}
 
 
 <article>

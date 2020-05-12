@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135532366-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-135532366-2');
+    </script>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Pandas GroupBy" />
+<meta property="og:description" content="Python Pandas GroupBy" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.geni.ai/notes/python/pandas/groupby.html" />
+<meta property="article:published_time" content="2020-05-12T16:04:37+00:00" />
+<meta property="article:modified_time" content="2020-05-12T16:04:37+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pandas GroupBy"/>
+<meta name="twitter:description" content="Python Pandas GroupBy"/>
+<meta name="generator" content="Hugo 0.70.0" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pandas GroupBy",
+  "url": "https:\/\/blog.geni.ai\/notes\/python\/pandas\/groupby.html",
+  "wordCount": "501",
+  "datePublished": "2020-05-12T16:04:37\x2b00:00",
+  "dateModified": "2020-05-12T16:04:37\x2b00:00",
+  "author": {
+    "@type": "Person",
+    "name": "Shanaka DeSoysa"
+  },
+  "description": "Python Pandas GroupBy"
+}
+</script> 
+
+    <title>Pandas GroupBy</title>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    
+    <link href="https://blog.geni.ai/notes/css/custom.css" rel="stylesheet"> 
+    <link href="https://blog.geni.ai/notes/css/syntax.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Shanaka C. DeSoysa All Notes And Articles" /> 
+    
+    <link href="https://blog.geni.ai/notes//articles/index.xml" rel="alternate" type="application/rss+xml" title="Shanaka C. DeSoysa Articles" />
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blog.geni.ai/notes/">Shanaka C. DeSoysa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Shanaka DeSoysa
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#python">Python</a>
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#machine_learning">Machine Learning</a>
+                            
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#statistics">Statistics</a>
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#network_security">Network Security</a>
+                            
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://blog.geni.ai/notes/#projects">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://blog.geni.ai/notes/#articles">Articles</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/about/shanaka_desoysa.html">About Shanaka</a>
+                            <a class="dropdown-item" href="https://github.com/shanaka-desoysa" target="_blank">GitHub</a>
+                            
+                            <a class="dropdown-item" href="https://www.linkedin.com/in/shanakadesoysa/" target="_blank">LinkedIn</a>
+                            
+                            
+                            
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                 
+
+
+<article>
+  <div class="technical_note">
+  <header>
+      
+    <h1 class="technical_note_title">Pandas GroupBy</h1>
+    <div class="technical_note_date">
+      <time datetime=" 2020-05-12T16:04:37Z ">May 12, 2020</time>
+    </div>
+  </header>
+  <div class="content">
+      
+  <p>The groupby method in pandas allows you to group rows of data together and call aggregate functions.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="c1"># Create dataframe</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Company&#39;</span><span class="p">:[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">,</span><span class="s1">&#39;FB&#39;</span><span class="p">],</span>
+       <span class="s1">&#39;Person&#39;</span><span class="p">:[</span><span class="s1">&#39;Sam&#39;</span><span class="p">,</span><span class="s1">&#39;Charlie&#39;</span><span class="p">,</span><span class="s1">&#39;Amy&#39;</span><span class="p">,</span><span class="s1">&#39;Vanessa&#39;</span><span class="p">,</span><span class="s1">&#39;Carl&#39;</span><span class="p">,</span><span class="s1">&#39;Sarah&#39;</span><span class="p">],</span>
+       <span class="s1">&#39;Sales&#39;</span><span class="p">:[</span><span class="mi">200</span><span class="p">,</span><span class="mi">120</span><span class="p">,</span><span class="mi">340</span><span class="p">,</span><span class="mi">124</span><span class="p">,</span><span class="mi">243</span><span class="p">,</span><span class="mi">350</span><span class="p">]}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Person</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GOOG</td>
+      <td>Sam</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GOOG</td>
+      <td>Charlie</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MSFT</td>
+      <td>Amy</td>
+      <td>340</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MSFT</td>
+      <td>Vanessa</td>
+      <td>124</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>FB</td>
+      <td>Carl</td>
+      <td>243</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>FB</td>
+      <td>Sarah</td>
+      <td>350</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Now you can use the .groupby() method to group rows together based off of a column name.<br>For instance let&rsquo;s group based off of Company. This will create a DataFrameGroupBy object:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span>
+</code></pre></div><pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f1336acded0&gt;
+</code></pre>
+<p>You can save this object as a new variable:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&#34;Company&#34;</span><span class="p">)</span>
+</code></pre></div><p>And then call aggregate methods off the object:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>296.5</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>160.0</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>232.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Company&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>296.5</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>160.0</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>232.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>More examples of aggregate methods:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>75.660426</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>56.568542</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>152.735065</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Person</th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>Carl</td>
+      <td>243</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>Charlie</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>Amy</td>
+      <td>124</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Person</th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>Sarah</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>Sam</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>Vanessa</td>
+      <td>340</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Person</th>
+      <th>Sales</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead tr th {
+    text-align: left;
+}
+
+.dataframe thead tr:last-of-type th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="8" halign="left">Sales</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
+      <th>Company</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>FB</th>
+      <td>2.0</td>
+      <td>296.5</td>
+      <td>75.660426</td>
+      <td>243.0</td>
+      <td>269.75</td>
+      <td>296.5</td>
+      <td>323.25</td>
+      <td>350.0</td>
+    </tr>
+    <tr>
+      <th>GOOG</th>
+      <td>2.0</td>
+      <td>160.0</td>
+      <td>56.568542</td>
+      <td>120.0</td>
+      <td>140.00</td>
+      <td>160.0</td>
+      <td>180.00</td>
+      <td>200.0</td>
+    </tr>
+    <tr>
+      <th>MSFT</th>
+      <td>2.0</td>
+      <td>232.0</td>
+      <td>152.735065</td>
+      <td>124.0</td>
+      <td>178.00</td>
+      <td>232.0</td>
+      <td>286.00</td>
+      <td>340.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>FB</th>
+      <th>GOOG</th>
+      <th>MSFT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="8" valign="top">Sales</th>
+      <th>count</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>296.500000</td>
+      <td>160.000000</td>
+      <td>232.000000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>75.660426</td>
+      <td>56.568542</td>
+      <td>152.735065</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>243.000000</td>
+      <td>120.000000</td>
+      <td>124.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>269.750000</td>
+      <td>140.000000</td>
+      <td>178.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>296.500000</td>
+      <td>160.000000</td>
+      <td>232.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>323.250000</td>
+      <td>180.000000</td>
+      <td>286.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>350.000000</td>
+      <td>200.000000</td>
+      <td>340.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">by_comp</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">]</span>
+</code></pre></div><pre><code>Sales  count      2.000000
+       mean     160.000000
+       std       56.568542
+       min      120.000000
+       25%      140.000000
+       50%      160.000000
+       75%      180.000000
+       max      200.000000
+Name: GOOG, dtype: float64
+</code></pre>
+<p><a href="https://colab.research.google.com/github/shanaka-desoysa/notes/blob/master/content/python/pandas/Groupby.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+
+</div>
+  <aside>
+      <div class="bug_reporting">
+          <h4>Find an error?</h4>
+          <p>All material is saved on GitHub. Please <a href='https://github.com/shanaka-desoysa/notes/issues/new'>submit a suggested change</a> and include the note's URL in the issue.</p>
+      </div>
+      </aside>
+
+    </div>
+</article>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <footer class="footer text-center">
+        <div class="container">
+            <span class="text-muted">Copyright &copy; Shanaka C. DeSoysa, <time datetime="2020">2020</time>. All 5 notes and articles are available on <a href="https://github.com/shanaka-desoysa/notes/">GitHub</a>.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
