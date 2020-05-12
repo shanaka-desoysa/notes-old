@@ -652,4 +652,4 @@ by_comp.describe().transpose()['GOOG']
 
 
 
-<a href="https://colab.research.google.com/github/shanaka-desoysa/notes/blob/master/content/python/pandas/Groupby.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+<a href="https://colab.research.google.com/github/shanaka-desoysa/notes/blob/master/content/python/pandas/Groupby.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
