@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>deep_learning - Shanaka C. DeSoysa</title>
+    <link>https://blog.geni.ai/notes/deep_learning/pytorch/index.xml</link>
+    <description></description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu,May 14, 2020 00:00:00 -0700</lastBuildDate>
+    
+        <atom:link href="https://blog.geni.ai/notes/deep_learning/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PyTorch Tensor Basics</title>
+      <link>https://blog.geni.ai/notes/deep_learning/pytorch/tensor_basics.html</link>
+      <pubDate>Thu,May 14, 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://blog.geni.ai/notes/deep_learning/pytorch/tensor_basics.html</guid>
+      <description>This section covers:
+ Converting NumPy arrays to PyTorch tensors Creating tensors from scratch  Perform standard imports import torch import numpy as np Confirm you&amp;rsquo;re using PyTorch version 1.1.0
+torch.__version__ &#39;1.5.0+cu101&#39;  Converting NumPy arrays to PyTorch tensors A torch.Tensor is a multi-dimensional matrix containing elements of a single data type.
+Calculations between tensors can only happen if the tensors share the same dtype.
+In some cases tensors are used as a replacement for NumPy to use the power of GPUs (more on this later).</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -64,6 +64,70 @@
     </div>
 </div>
 
+
+<!-----------------------------------------------------------------------------
+                                DEEP LEARNING
+------------------------------------------------------------------------------>
+<div class="row" id="statistics">
+    <div class="col-sm-12">
+        <h3 class="category_header">Deep Learning</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <h4 class="card-header">PyTorch</h4>
+            <div class="card-body">
+                <ul>
+                    {{ $section := site.GetPage "deep_learning/pytorch" }}
+                    {{ with $section }}
+                        {{ range .Pages }}
+                            <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <h4 class="card-header">Tensorflow</h4>
+            <div class="card-body">
+                <ul>
+                    {{ $section := site.GetPage "deep_learning/tensorflow" }}
+                    {{ with $section }}
+                        {{ range .Pages }}
+                            <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <h4 class="card-header">Keras</h4>
+            <div class="card-body">
+                <ul>
+                    {{ $section := site.GetPage "deep_learning/keras" }}
+                    {{ with $section }}
+                        {{ range .Pages }}
+                            <li><a href="{{.Permalink}}">{{.Title}}</a></li>
+                        {{ end }}
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-----------------------------------------------------------------------------
                                 NETWORK SECURITY
 ------------------------------------------------------------------------------>
