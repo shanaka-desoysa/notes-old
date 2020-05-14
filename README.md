@@ -2,6 +2,16 @@
 
 # WELCOME TO SHANAKA'S NOTES!
 
+## Metadata Example
+---
+title: "PyTorch Tensor Basics"
+author: "Shanaka DeSoysa"
+date: 2020-05-14T00:00:00-07:00
+description: "Converting NumPy arrays to PyTorch tensors and creating tensors from scratch"
+type: technical_note
+draft: false
+---
+
 ## Todo (SELF)
 * <s>Fix About page</s>
 * <s>Change color</s>
