@@ -2,15 +2,18 @@
 
 # WELCOME TO SHANAKA'S NOTES!
 
-## Metadata Example
+## Markdown Head Metadata Example
+
+```
 ---
-title: "PyTorch Tensor Basics"
+title: "Title Here"
 author: "Shanaka DeSoysa"
-date: 2020-05-14T00:00:00-07:00
-description: "Converting NumPy arrays to PyTorch tensors and creating tensors from scratch"
+date: 2020-05-10T00:00:00-07:00
+description: "Description here."
 type: technical_note
 draft: false
 ---
+```
 
 ## Todo (SELF)
 * <s>Fix About page</s>
