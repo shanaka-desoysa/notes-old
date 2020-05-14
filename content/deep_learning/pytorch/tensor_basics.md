@@ -506,4 +506,8 @@ x.layout
 
 
 
+
+
 PyTorch has a class to hold the <a href='https://pytorch.org/docs/stable/tensor_attributes.html#torch.torch.layout'>memory layout</a> option. The default setting of <a href='https://en.wikipedia.org/wiki/Stride_of_an_array'>strided</a> will suit our purposes throughout the course.
+
+<a href="https://colab.research.google.com/github/shanaka-desoysa/notes/blob/master/content/deep_learning/pytorch/tensor_basics.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>

@@ -23,5 +23,17 @@ Calculations between tensors can only happen if the tensors share the same dtype
 In some cases tensors are used as a replacement for NumPy to use the power of GPUs (more on this later).</description>
     </item>
     
+    <item>
+      <title>PyTorch Tensor Operations</title>
+      <link>https://blog.geni.ai/notes/deep_learning/pytorch/tensor_operations.html</link>
+      <pubDate>Thu,May 14, 2020 00:00:00 -0700</pubDate>
+      
+      <guid>https://blog.geni.ai/notes/deep_learning/pytorch/tensor_operations.html</guid>
+      <description>This section covers:
+ Indexing and slicing Reshaping tensors (tensor views) Tensor arithmetic and basic operations Dot products Matrix multiplication Additional, more advanced operations  Perform standard imports import torch import numpy as np Indexing and slicing Extracting specific values from a tensor works just the same as with NumPy arrays
+Image source: http://www.scipy-lectures.org/_images/numpy_indexing.png
+x = torch.arange(6).reshape(3,2) print(x) tensor([[0, 1], [2, 3], [4, 5]])  # Grabbing the right hand column values x[:,1] tensor([1, 3, 5])  # Grabbing the right hand column as a (3,1) slice x[:,1:] tensor([[1], [3], [5]])  Reshape tensors with .</description>
+    </item>
+    
   </channel>
 </rss>

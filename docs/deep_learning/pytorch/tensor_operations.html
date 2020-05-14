@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135532366-2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-135532366-2');
+    </script>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="PyTorch Tensor Operations" />
+<meta property="og:description" content="PyTorch Tensor Operations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.geni.ai/notes/deep_learning/pytorch/tensor_operations.html" />
+<meta property="article:published_time" content="2020-05-14T00:00:00-07:00" />
+<meta property="article:modified_time" content="2020-05-14T00:00:00-07:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PyTorch Tensor Operations"/>
+<meta name="twitter:description" content="PyTorch Tensor Operations."/>
+<meta name="generator" content="Hugo 0.70.0" />
+
+    
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "PyTorch Tensor Operations",
+  "url": "https:\/\/blog.geni.ai\/notes\/deep_learning\/pytorch\/tensor_operations.html",
+  "wordCount": "1066",
+  "datePublished": "2020-05-14T00:00:00-07:00",
+  "dateModified": "2020-05-14T00:00:00-07:00",
+  "author": {
+    "@type": "Person",
+    "name": "Shanaka DeSoysa"
+  },
+  "description": "PyTorch Tensor Operations."
+}
+</script> 
+
+    <title>PyTorch Tensor Operations</title>
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+
+    
+    <link href="https://blog.geni.ai/notes/css/custom.css" rel="stylesheet"> 
+    <link href="https://blog.geni.ai/notes/css/syntax.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,500,700" rel="stylesheet">
+
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="Shanaka C. DeSoysa All Notes And Articles" /> 
+    
+    <link href="https://blog.geni.ai/notes//articles/index.xml" rel="alternate" type="application/rss+xml" title="Shanaka C. DeSoysa Articles" />
+
+    <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="https://blog.geni.ai/notes/">Shanaka C. DeSoysa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Shanaka DeSoysa
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#python">Python</a>
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#machine_learning">Machine Learning</a>
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#deep_learning">Deep Learning</a>
+                            
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#statistics">Statistics</a>
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/#network_security">Network Security</a>
+                            
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://blog.geni.ai/notes/#projects">Projects</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://blog.geni.ai/notes/#articles">Articles</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="https://blog.geni.ai/notes/about/shanaka_desoysa.html">About Shanaka</a>
+                            <a class="dropdown-item" href="https://github.com/shanaka-desoysa" target="_blank">GitHub</a>
+                            
+                            <a class="dropdown-item" href="https://www.linkedin.com/in/shanakadesoysa/" target="_blank">LinkedIn</a>
+                            
+                            
+                            
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                 
+
+
+<article>
+  <div class="technical_note">
+  <header>
+      
+    <h1 class="technical_note_title">PyTorch Tensor Operations</h1>
+    <div class="technical_note_date">
+      <time datetime=" 2020-05-14T00:00:00-07:00 ">May 14, 2020</time>
+    </div>
+  </header>
+  <div class="content">
+      
+  <p>This section covers:</p>
+<ul>
+<li>Indexing and slicing</li>
+<li>Reshaping tensors (tensor views)</li>
+<li>Tensor arithmetic and basic operations</li>
+<li>Dot products</li>
+<li>Matrix multiplication</li>
+<li>Additional, more advanced operations</li>
+</ul>
+<h2 id="perform-standard-imports">Perform standard imports</h2>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</code></pre></div><h2 id="indexing-and-slicing">Indexing and slicing</h2>
+<p>Extracting specific values from a tensor works just the same as with NumPy arrays<br>
+<img src='https://github.com/shanaka-desoysa/pytorch-deep-learning/blob/master/Images/arrayslicing.png?raw=1' width="500" style="display: inline-block"><br><br>
+Image source: <a href="http://www.scipy-lectures.org/_images/numpy_indexing.png">http://www.scipy-lectures.org/_images/numpy_indexing.png</a></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[0, 1],
+        [2, 3],
+        [4, 5]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Grabbing the right hand column values</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div><pre><code>tensor([1, 3, 5])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Grabbing the right hand column as a (3,1) slice</span>
+<span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
+</code></pre></div><pre><code>tensor([[1],
+        [3],
+        [5]])
+</code></pre>
+<h2 id="reshape-tensors-with-ttviewtt">Reshape tensors with <tt>.view()</tt></h2>
+<p><a href='https://pytorch.org/docs/master/tensors.html#torch.Tensor.view'><strong><tt>view()</tt></strong></a> and <a href='https://pytorch.org/docs/master/torch.html#torch.reshape'><strong><tt>reshape()</tt></strong></a> do essentially the same thing by returning a reshaped tensor without changing the original tensor in place.<br>
+There&rsquo;s a good discussion of the differences <a href='https://stackoverflow.com/questions/49643225/whats-the-difference-between-reshape-and-view-in-pytorch'>here</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[ 0,  1,  2,  3,  4,  5],
+        [ 6,  7,  8,  9, 10, 11]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[ 0,  1],
+        [ 2,  3],
+        [ 4,  5],
+        [ 6,  7],
+        [ 8,  9],
+        [10, 11]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># x is unchanged</span>
+<span class="n">x</span>
+</code></pre></div><pre><code>tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+</code></pre>
+<h3 id="views-reflect-the-most-current-data">Views reflect the most current data</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">234</span>
+<span class="k">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[234,   1,   2,   3,   4,   5],
+        [  6,   7,   8,   9,  10,  11]])
+</code></pre>
+<h3 id="views-can-infer-the-correct-size">Views can infer the correct size</h3>
+<p>By passing in <tt>-1</tt> PyTorch will infer the correct value from the given tensor</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># infer number of columns for given rows</span>
+<span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[234,   1,   2,   3,   4,   5],
+        [  6,   7,   8,   9,  10,  11]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># infer number of rows for given columns</span>
+<span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[234,   1,   2],
+        [  3,   4,   5],
+        [  6,   7,   8],
+        [  9,  10,  11]])
+</code></pre>
+<h3 id="adopt-another-tensors-shape-with-ttview_astt">Adopt another tensor&rsquo;s shape with <tt>.view_as()</tt></h3>
+<p><a href='https://pytorch.org/docs/master/tensors.html#torch.Tensor.view_as'><strong><tt>view_as(input)</tt></strong></a> only works with tensors that have the same number of elements.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span><span class="o">.</span><span class="n">view_as</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[234,   1,   2,   3,   4,   5],
+        [  6,   7,   8,   9,  10,  11]])
+</code></pre>
+<h2 id="tensor-arithmetic">Tensor Arithmetic</h2>
+<p>Adding tensors can be performed a few different ways depending on the desired result.<br></p>
+<p>As a simple expression:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([5., 7., 9.])
+</code></pre>
+<p>As arguments passed into a torch operation:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</code></pre></div><pre><code>tensor([5., 7., 9.])
+</code></pre>
+<p>With an output tensor passed in as an argument:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># equivalent to result=torch.add(a,b)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([5., 7., 9.])
+</code></pre>
+<p><strong>Changing a tensor in-place</strong> with <em>_</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span><span class="o">.</span><span class="n">add_</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># equivalent to a=torch.add(a,b)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([5., 7., 9.])
+</code></pre>
+<div class="alert alert-info"><strong>NOTE:</strong> Any operation that changes a tensor in-place is post-fixed with an underscore _.
+    <br>In the above example: <tt>a.add_(b)</tt> changed <tt>a</tt>.</div>
+<h3 id="basic-tensor-operations">Basic Tensor Operations</h3>
+<table style="display: inline-block">
+<caption style="text-align: center"><strong>Arithmetic</strong></caption>
+<tr><th>OPERATION</th><th>FUNCTION</th><th>DESCRIPTION</th></tr>
+<tr><td>a + b</td><td>a.add(b)</td><td>element wise addition</td></tr>
+<tr><td>a - b</td><td>a.sub(b)</td><td>subtraction</td></tr>
+<tr><td>a * b</td><td>a.mul(b)</td><td>multiplication</td></tr>
+<tr><td>a / b</td><td>a.div(b)</td><td>division</td></tr>
+<tr><td>a % b</td><td>a.fmod(b)</td><td>modulo (remainder after division)</td></tr>
+<tr><td>a<sup>b</sup></td><td>a.pow(b)</td><td>power</td></tr>
+<tr><td>&nbsp;</td><td></td><td></td></tr>
+</table>
+<table style="display: inline-block">
+<caption style="text-align: center"><strong>Monomial Operations</strong></caption>
+<tr><th>OPERATION</th><th>FUNCTION</th><th>DESCRIPTION</th></tr>
+<tr><td>|a|</td><td>torch.abs(a)</td><td>absolute value</td></tr>
+<tr><td>1/a</td><td>torch.reciprocal(a)</td><td>reciprocal</td></tr>
+<tr><td>$\sqrt{a}$</td><td>torch.sqrt(a)</td><td>square root</td></tr>
+<tr><td>log(a)</td><td>torch.log(a)</td><td>natural log</td></tr>
+<tr><td>e<sup>a</sup></td><td>torch.exp(a)</td><td>exponential</td></tr>
+<tr><td>12.34  ==>  12.</td><td>torch.trunc(a)</td><td>truncated integer</td></tr>
+<tr><td>12.34  ==>  0.34</td><td>torch.frac(a)</td><td>fractional component</td></tr>
+</table>
+<table style="display: inline-block">
+<caption style="text-align: center"><strong>Trigonometry</strong></caption>
+<tr><th>OPERATION</th><th>FUNCTION</th><th>DESCRIPTION</th></tr>
+<tr><td>sin(a)</td><td>torch.sin(a)</td><td>sine</td></tr>
+<tr><td>cos(a)</td><td>torch.sin(a)</td><td>cosine</td></tr>
+<tr><td>tan(a)</td><td>torch.sin(a)</td><td>tangent</td></tr>
+<tr><td>arcsin(a)</td><td>torch.asin(a)</td><td>arc sine</td></tr>
+<tr><td>arccos(a)</td><td>torch.acos(a)</td><td>arc cosine</td></tr>
+<tr><td>arctan(a)</td><td>torch.atan(a)</td><td>arc tangent</td></tr>
+<tr><td>sinh(a)</td><td>torch.sinh(a)</td><td>hyperbolic sine</td></tr>
+<tr><td>cosh(a)</td><td>torch.cosh(a)</td><td>hyperbolic cosine</td></tr>
+<tr><td>tanh(a)</td><td>torch.tanh(a)</td><td>hyperbolic tangent</td></tr>
+</table>
+<table style="display: inline-block">
+<caption style="text-align: center"><strong>Summary Statistics</strong></caption>
+<tr><th>OPERATION</th><th>FUNCTION</th><th>DESCRIPTION</th></tr>
+<tr><td>$\sum a$</td><td>torch.sum(a)</td><td>sum</td></tr>
+<tr><td>$\bar a$</td><td>torch.mean(a)</td><td>mean</td></tr>
+<tr><td>a<sub>max</sub></td><td>torch.max(a)</td><td>maximum</td></tr>
+<tr><td>a<sub>min</sub></td><td>torch.min(a)</td><td>minimum</td></tr>
+<tr><td colspan="3">torch.max(a,b) returns a tensor of size a<br>containing the element wise max between a and b</td></tr>
+</table>
+<div class="alert alert-info"><strong>NOTE:</strong> Most arithmetic operations require float values. Those that do work with integers return integer tensors.<br>
+For example, <tt>torch.div(a,b)</tt> performs floor division (truncates the decimal) for integer types, and classic division for floats.</div>
+<h4 id="use-the-space-below-to-experiment-with-different-operations">Use the space below to experiment with different operations</h4>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</code></pre></div><pre><code>tensor(21.)
+</code></pre>
+<h2 id="dot-products">Dot products</h2>
+<p>A <a href='https://en.wikipedia.org/wiki/Dot_product'>dot product</a> is the sum of the products of the corresponding entries of two 1D tensors. If the tensors are both vectors, the dot product is given as:<br></p>
+<p>$\begin{bmatrix} a &amp; b &amp; c \end{bmatrix} ;\cdot; \begin{bmatrix} d &amp; e &amp; f \end{bmatrix} = ad + be + cf$</p>
+<p>If the tensors include a column vector, then the dot product is the sum of the result of the multiplied matrices. For example:<br>
+$\begin{bmatrix} a &amp; b &amp; c \end{bmatrix} ;\cdot; \begin{bmatrix} d \ e \ f \end{bmatrix} = ad + be + cf$<br><br>
+Dot products can be expressed as <a href='https://pytorch.org/docs/stable/torch.html#torch.dot'><strong><tt>torch.dot(a,b)</tt></strong></a> or <code>a.dot(b)</code> or <code>b.dot(a)</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="c1"># for reference</span>
+<span class="k">print</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</code></pre></div><pre><code>tensor([ 4., 10., 18.])
+
+tensor(32.)
+</code></pre>
+<div class="alert alert-info"><strong>NOTE:</strong> There's a slight difference between <tt>torch.dot()</tt> and <tt>numpy.dot()</tt>. While <tt>torch.dot()</tt> only accepts 1D arguments and returns a dot product, <tt>numpy.dot()</tt> also accepts 2D arguments and performs matrix multiplication. We show matrix multiplication below.</div>
+<h2 id="matrix-multiplication">Matrix multiplication</h2>
+<p>2D <a href='https://en.wikipedia.org/wiki/Matrix_multiplication'>Matrix multiplication</a> is possible when the number of columns in tensor <strong><tt>A</tt></strong> matches the number of rows in tensor <strong><tt>B</tt></strong>. In this case, the product of tensor <strong><tt>A</tt></strong> with size $(x,y)$ and tensor <strong><tt>B</tt></strong> with size $(y,z)$ results in a tensor of size $(x,z)$</p>
+<div>
+<div align="left"><img src='https://github.com/shanaka-desoysa/pytorch-deep-learning/blob/master/Images/Matrix_multiplication_diagram.png?raw=1' align="left"><br><br>
+<p>$\begin{bmatrix} a &amp; b &amp; c \<br>
+d &amp; e &amp; f \end{bmatrix} ;\times; \begin{bmatrix} m &amp; n \ p &amp; q \ r &amp; s \end{bmatrix} = \begin{bmatrix} (am+bp+cr) &amp; (an+bq+cs) \<br>
+(dm+ep+fr) &amp; (dn+eq+fs) \end{bmatrix}$</div></div></p>
+<div style="clear:both">Image source: <a href='https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram_2.svg'>https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram_2.svg</a></div>
+<p>Matrix multiplication can be computed using <a href='https://pytorch.org/docs/stable/torch.html#torch.mm'><strong><tt>torch.mm(a,b)</tt></strong></a> or <code>a.mm(b)</code> or <code>a @ b</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;a: &#39;</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;b: &#39;</span><span class="p">,</span><span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;a x b: &#39;</span><span class="p">,</span><span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+</code></pre></div><pre><code>a:  torch.Size([2, 3])
+b:  torch.Size([3, 2])
+a x b:  torch.Size([2, 2])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</code></pre></div><pre><code>tensor([[56., 62.],
+        [80., 89.]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</code></pre></div><pre><code>tensor([[56., 62.],
+        [80., 89.]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="err">@</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div><pre><code>tensor([[56., 62.],
+        [80., 89.]])
+</code></pre>
+<h3 id="matrix-multiplication-with-broadcasting">Matrix multiplication with broadcasting</h3>
+<p>Matrix multiplication that involves <a href='https://pytorch.org/docs/stable/notes/broadcasting.html#broadcasting-semantics'>broadcasting</a> can be computed using <a href='https://pytorch.org/docs/stable/torch.html#torch.matmul'><strong><tt>torch.matmul(a,b)</tt></strong></a> or <code>a.matmul(b)</code> or <code>a @ b</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">t2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t1</span>
+</code></pre></div><pre><code>tensor([[[ 0.0495, -1.2814,  0.4144,  0.3883],
+         [-2.1511,  0.0932,  2.0666,  0.8509],
+         [ 0.4211, -2.1292,  0.9620, -1.6141]],
+
+        [[ 0.6840, -0.7749,  0.7027,  0.0369],
+         [-0.0445,  0.4145, -0.2296,  1.2467],
+         [ 0.2800, -1.7043,  0.2537,  0.1963]]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">t2</span>
+</code></pre></div><pre><code>tensor([[ 1.9903,  0.3279, -0.2475,  0.5449,  0.0568],
+        [-0.5038, -0.0790, -0.1920,  0.1574, -0.2723],
+        [ 0.1912,  0.8469, -1.7464,  1.1971,  2.7874],
+        [-0.8376,  0.5609,  0.8387,  1.5994,  0.0535]])
+</code></pre>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+</code></pre></div><pre><code>torch.Size([2, 3, 5])
+</code></pre>
+<p>However, the same operation raises a <tt><strong>RuntimeError</strong></tt> with <tt>torch.mm()</tt>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">())</span>
+</code></pre></div><pre><code>---------------------------------------------------------------------------
+
+RuntimeError                              Traceback (most recent call last)
+
+&lt;ipython-input-46-edaac219da2b&gt; in &lt;module&gt;()
+----&gt; 1 print(torch.mm(t1, t2).size())
+
+
+RuntimeError: matrices expected, got 3D, 2D tensors at /pytorch/aten/src/TH/generic/THTensorMath.cpp:36
+</code></pre>
+<hr>
+<h1 id="advanced-operations">Advanced operations</h1>
+<h2 id="l2-or-euclidian-norm">L2 or Euclidian Norm</h2>
+<p>See <a href='https://pytorch.org/docs/stable/torch.html#torch.norm'><strong><tt>torch.norm()</tt></strong></a></p>
+<p>The <a href='https://en.wikipedia.org/wiki/Norm_(mathematics)#Euclidean_norm'>Euclidian Norm</a> gives the vector norm of $x$ where $x=(x_1,x_2,&hellip;,x_n)$.<br>
+It is calculated as<br></p>
+<p>${\displaystyle \left|{\boldsymbol {x}}\right|_{2}:={\sqrt {x_{1}^{2}+\cdots +x_{n}^{2}}}}$</p>
+<p>When applied to a matrix, <tt>torch.norm()</tt> returns the <a href='https://en.wikipedia.org/wiki/Matrix_norm#Frobenius_norm'>Frobenius norm</a> by default.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span><span class="mf">5.</span><span class="p">,</span><span class="mf">8.</span><span class="p">,</span><span class="mf">14.</span><span class="p">])</span>
+<span class="n">x</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span>
+</code></pre></div><pre><code>tensor(17.)
+</code></pre>
+<h2 id="number-of-elements">Number of elements</h2>
+<p>See <a href='https://pytorch.org/docs/stable/torch.html#torch.numel'><strong><tt>torch.numel()</tt></strong></a></p>
+<p>Returns the number of elements in a tensor.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span>
+</code></pre></div><pre><code>21
+</code></pre>
+<p>This can be useful in certain calculations like Mean Squared Error:<br>
+<tt>
+def mse(t1, t2):<br>
+    diff = t1 - t2<br>
+    return torch.sum(diff * diff) / diff<strong>.numel()</strong></tt></p>
+<p><a href="https://colab.research.google.com/github/shanaka-desoysa/notes/blob/master/content/deep_learning/pytorch/tensor_operations.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+
+</div>
+  <aside>
+      <div class="bug_reporting">
+          <h4>Find an error?</h4>
+          <p>All material is saved on GitHub. Please <a href='https://github.com/shanaka-desoysa/notes/issues/new'>submit a suggested change</a> and include the note's URL in the issue.</p>
+      </div>
+      </aside>
+
+    </div>
+</article>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    <footer class="footer text-center">
+        <div class="container">
+            <span class="text-muted">Copyright &copy; Shanaka C. DeSoysa, <time datetime="2020">2020</time>. All 7 notes and articles are available on <a href="https://github.com/shanaka-desoysa/notes/">GitHub</a>.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
